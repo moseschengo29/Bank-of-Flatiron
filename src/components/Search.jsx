@@ -1,13 +1,7 @@
-function Search({ query, setQuery, OnFilter }) {
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(query);
-    OnFilter(query);
-  }
-
+function Search({ query, setQuery }) {
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form>
         <input
           type="text"
           placeholder="Search for a transaction using description...."

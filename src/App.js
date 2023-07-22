@@ -102,13 +102,13 @@ function App() {
     setSortedTransactions(newTransactions);
   }
 
-  function handleFilter(searchTerm) {
+  useEffect(() => {
     const filteredTrans = transactions.filter((transaction) =>
-      transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
+      transaction.description.toLowerCase().includes(query.toLowerCase())
     );
     setFilteredTransactions(filteredTrans);
     setSortedTransactions(filteredTrans);
-  }
+  }, [query]);
 
   function handleDeleteTransaction(id) {
     deleteTransaction(id);
@@ -124,7 +124,7 @@ function App() {
       <Header>
         <Tag />
         <Logo />
-        <Search query={query} setQuery={setQuery} OnFilter={handleFilter} />
+        <Search query={query} setQuery={setQuery} />
       </Header>
 
       <div className="header">
