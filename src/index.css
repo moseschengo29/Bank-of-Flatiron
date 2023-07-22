@@ -71,10 +71,10 @@ form {
 label {
   font-weight: 500;
   width: 30px;
+  font-size: 1.8rem;
 }
 
-.transaction-input,
-select {
+.transaction-input {
   font-family: inherit;
   color: inherit;
   font-size: 1.5rem;
@@ -87,15 +87,17 @@ select {
   width: 300px;
 }
 
-.transaction-input:focus,
-select:focus {
+.transaction-input:focus {
   outline: none;
   border: 1px solid gray;
 }
 
+.transaction-input::placeholder {
+  font-size: 1.8rem;
+}
+
 .add-transaction {
   grid-template-columns: 1fr 1.5fr;
-  margin-bottom: 1.6rem;
   padding: 2rem;
   gap: 1rem;
 
@@ -107,6 +109,21 @@ select:focus {
 
 .add-transaction:hover {
   box-shadow: none;
+}
+
+.sort {
+  width: 250px;
+  border-radius: 0;
+  background-color: #fff;
+  font-size: 1.8rem;
+  margin: 1rem 0;
+  padding: 1rem 2rem;
+  border: 1px solid #fff;
+}
+
+.sort:focus {
+  outline: none;
+  border: 1px solid #b4b4b4;
 }
 
 .form-title {
@@ -137,11 +154,11 @@ select:focus {
 }
 
 .open-form {
-  grid-column: 1 / -1;
   padding: 1.5rem 1rem;
   justify-self: start;
   width: 200px;
   font-size: 2rem;
+  margin-bottom: 2rem;
 }
 
 table {

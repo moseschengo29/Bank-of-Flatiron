@@ -14,7 +14,7 @@ function AddTransaction({ onAddTransaction, onSetNewTransaction }) {
     const newTransaction = {
       category,
       description,
-      amount,
+      amount: `${amount}.00`,
       date,
     };
 
@@ -38,6 +38,7 @@ function AddTransaction({ onAddTransaction, onSetNewTransaction }) {
           id="category"
           type="text"
           placeholder="Category"
+          required
           className="transaction-input"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
@@ -47,6 +48,7 @@ function AddTransaction({ onAddTransaction, onSetNewTransaction }) {
         <input
           id="description"
           type="text"
+          required
           placeholder="Description"
           className="transaction-input"
           value={description}
@@ -58,6 +60,7 @@ function AddTransaction({ onAddTransaction, onSetNewTransaction }) {
           id="amount"
           type="number"
           placeholder="0.00"
+          required
           className="transaction-input"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
@@ -68,6 +71,7 @@ function AddTransaction({ onAddTransaction, onSetNewTransaction }) {
           id="category"
           type="date"
           className="transaction-input"
+          required
           value={date}
           onChange={(e) => setDate(e.target.value)}
         />

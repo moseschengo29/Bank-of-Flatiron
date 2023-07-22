@@ -1,4 +1,7 @@
-function TransactionTable({ transactions, onDelete }) {
+function TransactionTable({
+  transactions,
+  onDelete,
+}) {
   function handleDelete(id) {
     const confirmDelete = window.confirm("Do you want to delete this?");
 
@@ -21,7 +24,7 @@ function TransactionTable({ transactions, onDelete }) {
         <tbody>
           {transactions.length === 0
             ? "No transacations related to your search! Try another one."
-            : transactions.map((transaction) => (
+            : transactions?.map((transaction) => (
                 <tr key={transaction.id}>
                   <td>{transaction.category}</td>
                   <td>{transaction.description}</td>

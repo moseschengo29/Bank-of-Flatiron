@@ -5,16 +5,32 @@ import Search from "./components/Search";
 import AddTransactionForm from "./components/AddTransactionForm";
 import TransactionTable from "./components/TransactionTable";
 import Transactions from "./components/Transactions";
+import Sort from "./components/Sort";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [formIsShowing, setFormIsShowing] = useState(false);
+  const [formIsShowing, setFormIsShowing] = useState(true);
   const [query, setQuery] = useState("");
   const [transactions, setTransactions] = useState([]);
   const [newTransaction, setNewTransaction] = useState({});
-  const [filteredTransactions, setFilteredTransactions] = useState([
-    transactions,
-  ]);
+  const [filteredTransactions, setFilteredTransactions] = useState([]);
+  const [sortedTransactions, setSortedTransactions] = useState([]);
+
+  function handleSort(sortBy) {
+    if (sortBy === "category") {
+      const sortedByCategory = [...sortedTransactions].sort((a, b) =>
+        a.category.localeCompare(b.category)
+      );
+      setSortedTransactions(sortedByCategory);
+    }
+
+    if (sortBy === "description") {
+      const sortedByDescription = [...sortedTransactions].sort((a, b) =>
+        a.description.localeCompare(b.description)
+      );
+      setSortedTransactions(sortedByDescription);
+    }
+  }
 
   function handleSetNewTransaction(transaction) {
     setNewTransaction(transaction);
@@ -34,6 +50,7 @@ function App() {
         const data = await res.json();
         setTransactions(data);
         setFilteredTransactions(data); // Set filteredTransactions to initial transactions
+        setSortedTransactions(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -80,8 +97,9 @@ function App() {
   }
 
   function addTransactionHandler(transaction) {
-    const newTransactions = [...transactions, transaction];
-    setTransactions(newTransactions);
+    const newTransactions = [...sortedTransactions, transaction];
+    setFilteredTransactions(newTransactions);
+    setSortedTransactions(newTransactions);
   }
 
   function handleFilter(searchTerm) {
@@ -89,6 +107,7 @@ function App() {
       transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredTransactions(filteredTrans);
+    setSortedTransactions(filteredTrans);
   }
 
   function handleDeleteTransaction(id) {
@@ -97,6 +116,7 @@ function App() {
       (transaction) => transaction.id !== id
     );
     setFilteredTransactions(newTransactions);
+    setSortedTransactions(newTransactions);
   }
 
   return (
@@ -107,13 +127,18 @@ function App() {
         <Search query={query} setQuery={setQuery} OnFilter={handleFilter} />
       </Header>
 
-      <Transactions>
+      <div className="header">
+        <Sort transactions={sortedTransactions} onSort={handleSort} />
         <button className="open-form btn" onClick={handleShowForm}>
           {formIsShowing ? "Close Form" : "Add Transaction"}
         </button>
+      </div>
+
+      <Transactions>
         <TransactionTable
-          transactions={filteredTransactions}
+          transactions={sortedTransactions}
           onDelete={handleDeleteTransaction}
+          handleSort={handleSort}
         />
         {formIsShowing && (
           <AddTransactionForm
