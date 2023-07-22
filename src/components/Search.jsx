@@ -10,7 +10,7 @@ function Search({ query, setQuery, OnFilter }) {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Search for a transaction using description..."
+          placeholder="Search for a transaction using description...."
           className="search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}

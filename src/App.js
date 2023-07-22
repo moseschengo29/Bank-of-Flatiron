@@ -49,7 +49,7 @@ function App() {
         }
         const data = await res.json();
         setTransactions(data);
-        setFilteredTransactions(data); // Set filteredTransactions to initial transactions
+        setFilteredTransactions(data);
         setSortedTransactions(data);
       } catch (error) {
         console.error("Error fetching data:", error);

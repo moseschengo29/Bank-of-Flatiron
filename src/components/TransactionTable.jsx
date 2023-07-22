@@ -1,7 +1,4 @@
-function TransactionTable({
-  transactions,
-  onDelete,
-}) {
+function TransactionTable({ transactions, onDelete }) {
   function handleDelete(id) {
     const confirmDelete = window.confirm("Do you want to delete this?");
 
@@ -15,10 +12,10 @@ function TransactionTable({
       <table>
         <thead>
           <tr>
-            <th>Category</th>
-            <th>Description</th>
-            <th>Date</th>
-            <th>Amount</th>
+            <th>Category </th>
+            <th>Description </th>
+            <th>Date </th>
+            <th>Amount </th>
           </tr>
         </thead>
         <tbody>

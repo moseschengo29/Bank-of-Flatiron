@@ -6,6 +6,7 @@ function AddTransaction({ onAddTransaction, onSetNewTransaction }) {
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
 
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -32,7 +33,7 @@ function AddTransaction({ onAddTransaction, onSetNewTransaction }) {
   return (
     <div>
       <form className="add-transaction" onSubmit={(e) => handleSubmit(e)}>
-        <h1 className="form-title">Add a transaction</h1>
+        <h1 className="form-title">Add a transaction </h1>
         <label htmlFor="category">Category: </label>
         <input
           id="category"
