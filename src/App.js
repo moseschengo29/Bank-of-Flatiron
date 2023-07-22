@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import Header from "./components/Header";
 import Logo from "./components/Logo";
 import Tag from "./components/Tag";
@@ -6,7 +8,6 @@ import AddTransactionForm from "./components/AddTransactionForm";
 import TransactionTable from "./components/TransactionTable";
 import Transactions from "./components/Transactions";
 import Sort from "./components/Sort";
-import { useEffect, useState } from "react";
 
 function App() {
   const [formIsShowing, setFormIsShowing] = useState(true);

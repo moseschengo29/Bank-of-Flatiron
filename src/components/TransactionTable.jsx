@@ -20,7 +20,7 @@ function TransactionTable({ transactions, onDelete }) {
         </thead>
         <tbody>
           {transactions.length === 0
-            ? "No transacations related to your search! Try another one."
+            ? "No transactions related to your search! Try another one."
             : transactions?.map((transaction) => (
                 <tr key={transaction.id}>
                   <td>{transaction.category}</td>

@@ -14,8 +14,8 @@ body {
   font-family: "Poppins", sans-serif;
   color: #555;
   background-color: #f3f3f3;
-  height: 100vh;
-  padding: 2rem;
+  min-height: 100vh;
+  /* padding: 2rem; */
 }
 
 .header {
@@ -23,7 +23,7 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  padding: 1rem 2rem;
+  padding: 2rem 4rem;
 }
 
 .logo {
@@ -210,7 +210,7 @@ table tbody tr:last-child td {
   gap: 4rem;
 
   justify-content: center;
-  padding: 2rem 2rem;
+  padding: 1rem 4rem;
 }
 
 .add-form {
@@ -244,4 +244,15 @@ table tbody tr:last-child td {
 
 .delete-btn:hover {
   color: red;
+}
+
+footer {
+  padding: 2rem 1rem;
+  width: 100%;
+  font-size: 2rem;
+  background-color: #555;
+  color: white;
+  margin-top: 2rem;
+  position: absolute;
+  bottom: -400px;
 }
