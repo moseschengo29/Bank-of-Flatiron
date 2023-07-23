@@ -111,6 +111,20 @@
       "amount": "0",
       "date": "2023-07-09",
       "id": 16
+    },
+    {
+      "category": "Income",
+      "description": "Received money from Martin",
+      "amount": "3500.00",
+      "date": "2023-01-12",
+      "id": 17
+    },
+    {
+      "category": "Rent",
+      "description": "I paid my monthly rent",
+      "amount": "20000.00",
+      "date": "2023-07-29",
+      "id": 18
     }
   ]
 }

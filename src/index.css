@@ -26,6 +26,14 @@ body {
   padding: 2rem 4rem;
 }
 
+.sub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 4rem;
+}
+
 .logo {
   height: 6.5rem;
 }
@@ -161,6 +169,10 @@ label {
   margin-bottom: 2rem;
 }
 
+.transaction-table {
+  margin-bottom: 30px;
+}
+
 table {
   background-color: #fff;
   padding: 2rem 1rem;
@@ -244,41 +256,4 @@ table tbody tr:last-child td {
 
 .delete-btn:hover {
   color: red;
-}
-
-footer {
-  padding: 2rem 1rem;
-  width: 100%;
-  font-size: 2rem;
-  background-color: #555;
-  color: white;
-  margin-top: 2rem;
-  position: absolute;
-  bottom: -400px;
-}
-
-.spinner {
-  margin: 5rem auto;
-  text-align: center;
-}
-
-.spinner svg {
-  height: 6rem;
-  width: 6rem;
-  color: red;
-  animation: rotate 2s infinite linear;
-}
-
-svg {
-  fill: black;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }

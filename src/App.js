@@ -132,7 +132,7 @@ function App() {
         <Search query={query} setQuery={setQuery} />
       </Header>
 
-      <div className="header">
+      <div className="sub-header">
         <Sort transactions={sortedTransactions} onSort={handleSort} />
         <button className="open-form btn" onClick={handleShowForm}>
           {formIsShowing ? "Close Form" : "Add Transaction"}
