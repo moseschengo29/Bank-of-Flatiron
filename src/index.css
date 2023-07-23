@@ -256,3 +256,29 @@ footer {
   position: absolute;
   bottom: -400px;
 }
+
+.spinner {
+  margin: 5rem auto;
+  text-align: center;
+}
+
+.spinner svg {
+  height: 6rem;
+  width: 6rem;
+  color: red;
+  animation: rotate 2s infinite linear;
+}
+
+svg {
+  fill: black;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

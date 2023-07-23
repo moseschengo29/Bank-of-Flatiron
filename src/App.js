@@ -16,6 +16,7 @@ function App() {
   const [newTransaction, setNewTransaction] = useState({});
   const [filteredTransactions, setFilteredTransactions] = useState([]);
   const [sortedTransactions, setSortedTransactions] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleSort(sortBy) {
     if (sortBy === "category") {
@@ -44,6 +45,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
+        setIsLoading(true);
         const res = await fetch("http://localhost:3000/transactions");
         if (!res.ok) {
           throw new Error("Failed to fetch data");
@@ -54,6 +56,8 @@ function App() {
         setSortedTransactions(data);
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
       }
     }
     fetchData();
@@ -136,11 +140,15 @@ function App() {
       </div>
 
       <Transactions>
-        <TransactionTable
-          transactions={sortedTransactions}
-          onDelete={handleDeleteTransaction}
-          handleSort={handleSort}
-        />
+        {isLoading ? (
+          <h1>LOADING...</h1>
+        ) : (
+          <TransactionTable
+            transactions={sortedTransactions}
+            onDelete={handleDeleteTransaction}
+            handleSort={handleSort}
+          />
+        )}
         {formIsShowing && (
           <AddTransactionForm
             onAddTransaction={addTransactionHandler}
