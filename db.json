@@ -118,13 +118,6 @@
       "amount": "3500.00",
       "date": "2023-01-12",
       "id": 17
-    },
-    {
-      "category": "Rent",
-      "description": "I paid my monthly rent",
-      "amount": "20000.00",
-      "date": "2023-07-29",
-      "id": 18
     }
   ]
 }

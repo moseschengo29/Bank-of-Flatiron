@@ -32,6 +32,12 @@ function App() {
       );
       setSortedTransactions(sortedByDescription);
     }
+    if (sortBy === "amount") {
+      const sortedByDescription = [...sortedTransactions].sort(
+        (a, b) => b.amount - a.amount
+      );
+      setSortedTransactions(sortedByDescription);
+    }
   }
 
   function handleSetNewTransaction(transaction) {
